@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Test</title>
+    </head>
+    <body>
+        <%- include('partials/top-menu') %>
+        <h1>Hello <%= username %></h1>
+        <form action="/log-out" method="POST">
+            <button>Log out</button>
+        </form>
+    </body>
+</html>

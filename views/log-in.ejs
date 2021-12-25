@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Log in</title>
+    </head>
+    <body>
+        <%- include('partials/top-menu') %>
+        <div id="form">
+            <div id="leftForm">
+                <div id="formDescription">
+                    <img id="accountIcon" src="https://img.icons8.com/fluency-systems-filled/100/ffffff/guest-male.png"/>
+                    <h2 id="descriptionTitle">Log in to your account</h2>
+                    <p id="descriptionText">
+                        Fill in the credentials and log in <br> to acces your dashboard
+                    </p>
+                </div>
+            </div>
+
+            <div id="rightForm">
+                <div id="formTitle">
+                    <h1>Log in</h1>
+                </div>
+                <form action="/log-in" method="POST">
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn">
+                    <label for="keepLoggedIn">Keep me logged in:</label>
+                    <div class="button">
+                        <button id="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
