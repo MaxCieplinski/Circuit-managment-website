@@ -1,0 +1,59 @@
+:root {
+    --menu-height: 100px;
+    --div-page-width: 150px;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#menuTitle {
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+}
+
+#menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgb(123, 176, 35);
+    width: 100%;
+    height: var(--menu-height);;
+}
+
+#sites {
+    float: right;
+}
+
+#sites > ul {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0px;
+}
+
+#sites > ul > li {
+    /* border: 2px solid red; */
+    list-style-type: none;
+    color: white;
+}
+
+.menuPages {
+    cursor: pointer;
+    height: var(--menu-height);
+    width: var(--div-page-width);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menuPages:hover {
+    background-color: rgb(136, 184, 57);
+}
