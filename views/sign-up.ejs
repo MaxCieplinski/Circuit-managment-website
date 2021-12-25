@@ -13,13 +13,11 @@
                     <h1>Sign up</h1>
                 </div>
                 <form action="/sign-up" method="POST">
-                    <input type="text" id="name" class="input" name="name" placeholder="Name" required>
-                    <input type="text" id="surname" class="input" name="surname" placeholder="Surname" required>
-                    <input type="text" id="email" class="input" name="email" placeholder="Email" required>
+                    <input type="text" id="name" class="input" name="name" placeholder="Name" autocomplete="given-name" required>
+                    <input type="text" id="surname" class="input" name="surname" placeholder="Surname" autocomplete="family-name" required>
+                    <input type="text" id="email" class="input" name="email" placeholder="Email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" required>
                     <input type="text" id="username" class="input" name="username" placeholder="Username" required>
                     <input type="password" id="password" class="input" name="password" placeholder="Password" required>
-                    <input type="checkbox" id="keepLoggedIn" class="input" name="keepLoggedIn" placeholder=" ">
-                    <label for="keepLoggedIn">Keep me logged in</label>
                     <div class="button">
                         <button id="submit">Submit</button>
                     </div>

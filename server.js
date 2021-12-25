@@ -3,6 +3,7 @@ const session = require('express-session');
 const cookieParser = require('cookie-parser');
 // const MongoStore = require('connect-mongo')(session);
 const socketio = require('socket.io');
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 const path = require('path');
 const mongoose = require('mongoose');
@@ -22,6 +23,7 @@ app.use(cookieParser());
 
 const sessionTime = 1000 * 60 * 60 * 24 * 7;
 const cookieName = 'sid';
+const SALT_WORK_FACTOR = 10;
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(port, host, () => {console.log(`Server is running on ${host}:${port} | MongoDB connected`)}))
@@ -72,16 +74,25 @@ app.get('/log-in', (req, res) => {
     res.render('log-in');
 });
 
-app.post('/log-in', async function (req, res) {
-    const userExists = await User.findOne({ username: req.body.username, password: req.body.password });
-    if (userExists) {
-        if (req.body.keepLoggedIn === 'on') {
-            req.session.username = req.body.username;
-        } 
-        res.redirect('dashboard');
-    } else {
-        res.send("User not found")
-    }
+app.post('/log-in', function (req, res) {
+    User.findOne({ username: req.body.username }, function(err, user) {
+        if (err) throw err;
+        if (user != null) {
+            user.comparePassword(req.body.password, function(err, isMatch) {
+                if (err) throw err;
+                if (isMatch) {
+                    if (req.body.keepLoggedIn === 'on') {
+                        req.session.username = req.body.username;
+                    } 
+                    res.redirect('dashboard');
+                } else {
+                    res.send("Wrong username or password");
+                }
+            });
+        } else {
+            res.send("Wrong username or password");
+        }
+    });
 });
 
 app.post('/log-out', (req, res) => {
@@ -100,7 +111,7 @@ app.get('/sign-up', (req, res) => {
 });
 
 app.post('/sign-up', async function (req, res) {
-    const userExists = await User.exists({ username: req.body.username }); 
+    const userExists = await User.exists({ username: req.body.username, email: req.body.email }); 
     if (!userExists) {
         const user = new User(req.body);
         user.save()
