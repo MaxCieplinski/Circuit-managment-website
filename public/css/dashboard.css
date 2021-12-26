@@ -1,0 +1,108 @@
+:root {
+    --settingsWidth: 230px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+#dashboard {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+}
+
+#accountIconDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#accountIcon {
+    width: 100px;
+    height: 100px;
+    border-radius: 30%;
+    background-color: #F3F7FA;
+    margin: 20px;
+    margin-bottom: 6px;
+    padding: 2px 2px;
+}
+
+#username {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#settings > ul > li {
+    margin-top: 5px;
+}
+
+.listElementDiv {
+    background-color: #F3F7FA;
+    display: inline-block;
+    width: 4px;
+    height: 15px;
+    border-radius: 2px;
+    margin-right: 40px;
+}
+
+
+#settings {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-radius: 19px;
+    min-width: var(--settingsWidth);
+    background-color: #F3F7FA;
+    padding-top: 30px;
+}
+
+#left {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 60px;
+}
+
+#right {
+    background-color: #EEF2F5;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#right-top {
+    background-color: white;
+    border-radius: 20px;
+}
+
+#right-bottom {
+    background-color: white;
+    border-radius: 20px;
+}
+
+#log-out {
+    margin-top: 150px;
+}
+
+.button {
+    /* padding: 0; */
+    border: none;
+    background: none;
+}
+
+.button:hover {
+    cursor: pointer;
+}

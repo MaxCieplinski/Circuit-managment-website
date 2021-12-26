@@ -2,13 +2,45 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Test</title>
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="css/dashboard.css">
+        <script src="js/dashboard.js" defer></script>
     </head>
     <body>
         <%- include('partials/top-menu') %>
-        <h1>Hello <%= username %></h1>
-        <form action="/log-out" method="POST">
-            <button>Log out</button>
-        </form>
+        <div id="dashboard">
+            <div id="left">
+                <div id="accountIconDiv">
+                    <img id="accountIcon" src="https://img.icons8.com/fluency-systems-filled/100/ffffff/guest-male.png"/>
+                </div>
+                <h1 id="username"><%= username %></h1>
+                <div id="settings">
+                    <ul>
+                        <li class="listElement">
+                            <div class="listElementDiv"></div>
+                            Dashboard
+                        </li>
+                        <li class="listElement">
+                            <div class="listElementDiv"></div>
+                            Settings
+                        </li>
+                        <li id="log-out">
+                            <form action="/log-out" method="POST">
+                                <button class="button">Log out</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="right">
+                <div id="right-top">
+
+                </div>
+                <div id="right-bottom">
+
+                </div>
+            </div>
+        </div>
     </body>
 </html>
