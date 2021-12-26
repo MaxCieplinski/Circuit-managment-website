@@ -84,6 +84,12 @@ input[type="checkbox"] {
     padding: 17px 17px;
 }
 
+#showPassword {
+    position: absolute;
+    right: 358.5px;
+    top: 322.5px;
+}
+
 #submit {
     text-transform: uppercase;
     background-color: rgb(110, 48, 214);
