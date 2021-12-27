@@ -60,7 +60,17 @@ app.get('/dashboard', (req, res) => {
     const { username } = req.session;
     if (username != undefined)
     {
-        res.render('dashboard', { username: String(username) });
+        res.render('dashboard', { username: String(username), site: 'dashboard' });
+    } else {
+        res.redirect('/log-in');
+    }
+});
+
+app.get('/dashboard-settings', (req, res) => {
+    const { username } = req.session;
+    if (username != undefined)
+    {
+        res.render('dashboard', { username: String(username), site: 'dashboard-settings' });
     } else {
         res.redirect('/log-in');
     }
@@ -83,7 +93,7 @@ app.post('/log-in', function (req, res) {
                 if (isMatch) {
                     if (req.body.keepLoggedIn === 'on') {
                         req.session.username = req.body.username;
-                    } 
+                    }
                     res.redirect('dashboard');
                 } else {
                     res.send("Wrong username or password");
@@ -111,7 +121,7 @@ app.get('/sign-up', (req, res) => {
 });
 
 app.post('/sign-up', async function (req, res) {
-    const userExists = await User.exists({ username: req.body.username, email: req.body.email }); 
+    const userExists = await User.exists({ username: req.body.username, email: req.body.email });
     if (!userExists) {
         const user = new User(req.body);
         user.save()

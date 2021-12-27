@@ -24,22 +24,23 @@
                             <div class="listElementDiv"></div>
                             Settings
                         </li>
-                        <li id="log-out">
-                            <form action="/log-out" method="POST">
-                                <button class="button">Log out</button>
+                        <li>
+                            <form action='/log-out' method='post'>
+                                <button id="log-out">Log out</button>
                             </form>
+                            <!-- <p id="log-out">Log out</p> -->
                         </li>
                     </ul>
                 </div>
             </div>
 
             <div id="right">
-                <div id="right-top">
-
-                </div>
-                <div id="right-bottom">
-
-                </div>
+                <% if (site == 'dashboard-settings') { %>
+                    <%- include('partials/dashboard-settings') %>
+                <% } %>
+                <% if (site == 'dashboard') { %>
+                    <%- include('partials/dashboard-dashboard') %>
+                <% } %>
             </div>
         </div>
     </body>

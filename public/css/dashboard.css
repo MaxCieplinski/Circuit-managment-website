@@ -94,15 +94,15 @@ ul {
 }
 
 #log-out {
-    margin-top: 150px;
-}
-
-.button {
-    /* padding: 0; */
+    background-color: #F3F7FA;
+    height: 15px;
+    margin-right: 40px;
+    margin-left: 48px;
+    margin-top: 200px;
     border: none;
-    background: none;
+    font-size: inherit;
 }
 
-.button:hover {
+#log-out:hover {
     cursor: pointer;
 }
