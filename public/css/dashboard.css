@@ -33,7 +33,7 @@ html, body {
     padding: 2px 2px;
 }
 
-#username {
+#profile-username {
     margin-bottom: 30px;
 }
 
@@ -81,6 +81,8 @@ ul {
     width: 100%;
     display: flex;
     flex-direction: column;
+    box-shadow: inset 18px 0 20px rgba(59, 59, 59, 0.192);
+    clip-path: inset(0px -15px 0px 0px);
 }
 
 #right-top {

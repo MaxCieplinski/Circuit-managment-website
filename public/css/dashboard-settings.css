@@ -1,0 +1,41 @@
+body {
+    font-family: sans-serif;
+}
+
+#dashboard-settings {
+    margin-left: 100px;
+    margin-top: 45px;
+}
+
+#data-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile-title {
+    margin-bottom: 35px;
+    text-align: left;
+    color: rgba(8, 8, 8, 0.808);
+}
+
+#form-input-title {
+    margin-bottom: 3.6px;
+    margin-top: 0;
+    color: rgb(123, 176, 35);
+}
+
+.form-input {
+    margin-bottom: 20px;
+    width: 500px;
+    height: 20px;
+    padding: 5px;
+    border: 1px solid rgba(71, 71, 71, 0.411);
+    border-radius: 4px;
+    box-shadow: 0.2px 0.2px 3.5px rgba(34, 34, 34, 0.432);
+}
+
+#submit {
+    width: 100px;
+    height: 25px;
+    color: red;
+}
