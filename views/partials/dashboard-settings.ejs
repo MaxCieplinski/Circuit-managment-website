@@ -1,18 +1,18 @@
 <link rel="stylesheet" href="css/dashboard-settings.css">
 <div id="dashboard-settings">
     <h1 id="profile-title">Profile</h1>
-    <form action="dashboard-settings" method="PUT">
+    <form action="dashboard-settings" method="POST">
         <div id="data-form">
             <h3 id="form-input-title">Name</h3>
-            <input class="form-input" type="text" id="name" name="name" placeholder="Name" data-lpignore="true">
+            <input class="form-input" type="text" id="name" name="name" placeholder=<%= name %> data-lpignore="true">
             <h3 id="form-input-title">Surname</h3>
-            <input class="form-input" type="text" id="surname" name="surname" placeholder="Surname" data-lpignore="true">
+            <input class="form-input" type="text" id="surname" name="surname" placeholder=<%= surname %>  data-lpignore="true">
             <h3 id="form-input-title">Email</h3>
-            <input class="form-input" type="text" id="email" name="email" placeholder="Email" pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" data-lpignore="true">
+            <input class="form-input" type="text" id="email" name="email" placeholder=<%= email %> pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" data-lpignore="true">
             <h3 id="form-input-title">Username</h3>
-            <input class="form-input" type="text" id="username" name="username" placeholder="Username" data-lpignore="true">
+            <input class="form-input" type="text" id="username" name="username" placeholder=<%= username %> data-lpignore="true">
             <h3 id="form-input-title">Password</h3>
-            <input class="form-input" type="password" id="password" name="password" placeholder="Password" data-lpignore="true">
+            <input class="form-input" type="password" id="password" name="password" placeholder="Enter the new password" data-lpignore="true">
             <div class="button">
                 <button id="submit">Save</button>
             </div>

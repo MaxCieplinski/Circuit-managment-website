@@ -68,12 +68,34 @@ app.get('/dashboard', (req, res) => {
 
 app.get('/dashboard-settings', (req, res) => {
     const { username } = req.session;
-    if (username != undefined)
-    {
-        res.render('dashboard', { username: String(username), site: 'dashboard-settings' });
-    } else {
-        res.redirect('/log-in');
-    }
+    User.findOne({ username: username }, (err, user) => {
+        if (err) throw err;
+        if (user != null && username != undefined)
+        {
+            res.render('dashboard', { site: 'dashboard-settings', name: String(user.name), surname: String(user.surname), username: String(username), email: String(user.email) });
+        } else {
+            res.redirect('/log-in');
+        }
+    });
+});
+
+app.post('/dashboard-settings', (req, res) => {
+    User.findOne({ username: req.session.username }, function(err, user) {
+        if (err) throw err;
+        if (user !== null) {
+            user.name = req.body.name || user.name;
+            user.surname = req.body.surname || user.surname;
+            user.email = req.body.email || user.email;
+            user.username = req.body.username || user.username;
+            user.password = req.body.password || user.password;
+            req.session.username = user.username;
+            user.save().then(() => {
+                res.render('dashboard', { site: 'dashboard-settings', name: String(user.name), surname: String(user.surname), username: String(user.username), email: String(user.email) });
+            });
+        } else {
+            res.send('User not found');
+        }
+    });
 });
 
 app.get('/about', (req, res) => {

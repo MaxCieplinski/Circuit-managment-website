@@ -38,4 +38,10 @@ body {
     width: 100px;
     height: 25px;
     color: red;
+    border: 0.5px solid rgba(41, 41, 41, 0.466);
+    border-radius: 5px;
+}
+
+#submit:hover {
+    background-color: rgba(209, 209, 209, 0.719);
 }
