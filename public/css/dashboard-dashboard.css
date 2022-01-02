@@ -1,0 +1,27 @@
+#leds-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: fit-content;
+    border: 1px solid rgba(163, 163, 163, 0.74);
+    border-radius: 25px;
+    padding: 22px 22px;
+    box-shadow: 5px 5px 5px rgba(56, 56, 56, 0.15);
+}
+
+.leds {
+    background-color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.leds:last-child {
+    margin-right: 0;
+}
+
+#leds-chart {
+
+}
