@@ -1,14 +1,34 @@
 const User = require('../models/user');
+const Led = require('../models/led');
 
 const index_get = (req, res) => {
     res.redirect('dashboard');
 }
 
-const dashboard_get = (req, res) => {
+const dashboard_get = async (req, res) => {
     const { username } = req.session;
     if (username != undefined)
     {
-        res.render('dashboard', { username: String(username), site: 'dashboard' });
+        var leds_array;
+        var leds_count = await Led.estimatedDocumentCount();
+        if (leds_count == 0)
+        {
+            for (let i = 1; i <= 10; i++)
+            {
+                const led = new Led({
+                    number: i,
+                    status: false,
+                    owner: "None"
+                });
+                await led.save();
+            }
+
+            leds_array = await Led.find({});
+        } else {
+            leds_array = await Led.find({});
+        }
+
+        res.render('dashboard', { username: String(username), site: 'dashboard', leds: leds_array });
     } else {
         res.redirect('/log-in');
     }

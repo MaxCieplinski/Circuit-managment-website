@@ -18,8 +18,37 @@
     margin-right: 10px;
 }
 
+.leds:hover + .led-info {
+    opacity: 1;
+}
+
 .leds:last-child {
     margin-right: 0;
+}
+
+.led-info {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    z-index: 1;
+    top: 250px;
+}
+
+p {
+    margin: 0;
+    font-size: small;
+}
+
+#info-number {
+
+}
+
+#info-status {
+    color: red;
+}
+
+#info-owner {
+
 }
 
 #leds-chart {

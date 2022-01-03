@@ -15,3 +15,6 @@ const ledSchema = new Schema({
         required: false
     }
 }, {    timestamps: true    });
+
+const Led = mongoose.model('Leds', ledSchema);
+module.exports = Led;
