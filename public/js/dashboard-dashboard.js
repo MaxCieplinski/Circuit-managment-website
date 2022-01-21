@@ -1,10 +1,42 @@
 const leds = document.querySelectorAll('.leds');
-for (let led of leds) {
-    led.addEventListener('click', () => {
-        if (window.getComputedStyle(led).getPropertyValue('background-color') == 'rgb(255, 255, 255)') {
+
+const get_data = async (led) => {
+    const response = await fetch(`/leds/:${led.dataset.id}`, { method: 'GET' });
+    var data = await response.text();
+    data = (data === 'true');
+    return data;
+}
+
+const main = async () => {
+    for (let led of leds) {
+        var status;
+        status = await get_data(led);
+        if (status) {
             led.style.backgroundColor = 'red';
-        } else if (window.getComputedStyle(led).getPropertyValue('background-color') == 'rgb(255, 0, 0)') {
+        } else {
             led.style.backgroundColor = 'white';
         }
-    });
+
+        led.addEventListener('click', () => {    
+            if (window.getComputedStyle(led).getPropertyValue('background-color') == 'rgb(255, 255, 255)') {
+                status = true;
+            } else {
+                status = false;
+            }
+            
+            if (window.getComputedStyle(led).getPropertyValue('background-color') == 'rgb(255, 255, 255)') {
+                led.style.backgroundColor = 'red';
+                status = true;
+                led.nextElementSibling.children[2].textContent = "STATUS :  true";
+            } else if (window.getComputedStyle(led).getPropertyValue('background-color') == 'rgb(255, 0, 0)') {
+                led.style.backgroundColor = 'white';
+                status = false;
+                led.nextElementSibling.children[2].textContent = 'STATUS :  false';
+            }
+
+            fetch(`/leds/:${led.dataset.id}`, {  method: 'PUT', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ number: led.dataset.id, status: status })});
+        });
+    }
 }
+
+main();

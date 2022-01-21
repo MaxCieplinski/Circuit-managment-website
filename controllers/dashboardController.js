@@ -78,9 +78,30 @@ const dashboard_settings_post = (req, res) => {
     }
 }
 
+const leds_get = async (req, res) => {
+    const number = req.params.id.substring(1);
+    const led = await Led.findOne({ number: number });
+    // console.log(led);
+    if (led != null) {
+        res.send(led.status);
+    } else {
+        console.log("Led not found");
+    }
+}
+
+const leds_put = async (req, res) => {
+    const led = await Led.findOne({ number: req.body.number });
+    if (led != null && req.body.status != null) {
+        led.status = req.body.status;
+        led.save();
+    }
+}
+
 module.exports = {
     index_get,
     dashboard_get,
     dashboard_settings_get,
-    dashboard_settings_post
+    dashboard_settings_post,
+    leds_get,
+    leds_put
 }

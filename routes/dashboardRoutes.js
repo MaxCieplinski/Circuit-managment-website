@@ -6,5 +6,7 @@ router.get('/', dashboardController.index_get);
 router.get('/dashboard', dashboardController.dashboard_get);
 router.get('/dashboard-settings', dashboardController.dashboard_settings_get);
 router.post('/dashboard-settings', dashboardController.dashboard_settings_post);
+router.get('/leds/:id?', dashboardController.leds_get);
+router.put('/leds/:id?', dashboardController.leds_put);
 
 module.exports = router;
