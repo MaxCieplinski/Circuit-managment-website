@@ -85,9 +85,9 @@ input[type="checkbox"] {
 }
 
 #showPassword {
-    position: absolute;
-    right: 358.5px;
-    top: 322.5px;
+    position: relative;
+    right: -86%;
+    top: -38.5px;
 }
 
 #submit {

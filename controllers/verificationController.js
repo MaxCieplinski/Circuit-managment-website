@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const cookieName = 'sid';
 
 const verification_signup_get = (req, res) => {
     res.render('sign-up');

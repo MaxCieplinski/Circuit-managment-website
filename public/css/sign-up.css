@@ -85,9 +85,9 @@ input {
 }
 
 #showPassword {
-    position: absolute;
-    right: 628.5px;
-    top: 462.5px;
+    position: relative;
+    right: -88%;
+    top: -36.5px;
 }
 
 #submit {
