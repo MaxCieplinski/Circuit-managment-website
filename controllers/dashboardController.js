@@ -40,7 +40,7 @@ const dashboard_settings_get = (req, res) => {
     if (username != undefined)
     {
         User.findOne({ username: username }, (err, user) => {
-            if (err) throw err;
+            if (err) console.log(err);
             if (user != null && username != undefined)
             {
                 res.render('dashboard', { site: 'dashboard-settings', name: String(user.name), surname: String(user.surname), username: String(username), email: String(user.email) });
@@ -58,7 +58,7 @@ const dashboard_settings_post = (req, res) => {
     if (username != undefined)
     {
         User.findOne({ username: username }, (err, user) => {
-            if (err) throw err;
+            if (err) console.log(err);
             if (user != null && username != undefined)
             {
                 user.name = req.body.name || user.name;
@@ -82,7 +82,6 @@ const dashboard_settings_post = (req, res) => {
 const leds_get = async (req, res) => {
     const number = req.params.id.substring(1);
     const led = await Led.findOne({ number: number });
-    // console.log(led);
     if (led != null) {
         res.send(led.status);
     } else {

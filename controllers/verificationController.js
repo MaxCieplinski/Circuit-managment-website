@@ -14,7 +14,10 @@ const verification_signup_post = async (req, res) => {
                 res.redirect('/log-in');
                 console.log(`New user created | ${req.body.name} ; ${req.body.surname} ; ${req.body.username} ; ${req.body.password}`);
             })
-            .catch((err) => res.send(err));
+            .catch((err) => {
+                console.log(err);
+                res.send(err);
+            });
     } else {
         res.send('Username already taken');
     }
@@ -26,10 +29,10 @@ const verification_login_get = (req, res) => {
 
 const verification_login_post = (req, res) => {
     User.findOne({ username: req.body.username }, function(err, user) {
-        if (err) throw err;
+        if (err) console.log(err);
         if (user != null) {
             user.comparePassword(req.body.password, function(err, isMatch) {
-                if (err) throw err;
+                if (err) console.log(err);
                 if (isMatch) {
                     if (req.body.keepLoggedIn === 'on') {
                         req.session.username = req.body.username;
@@ -48,6 +51,7 @@ const verification_login_post = (req, res) => {
 const verification_logout_post = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
+            console.log(err);
             res.send(err);
         }
 
