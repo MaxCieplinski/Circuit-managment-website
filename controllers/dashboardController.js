@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const Led = require('../models/led');
+const rpi = require('../rpi');
 
 const index_get = (req, res) => {
     res.redirect('dashboard');
@@ -93,8 +94,10 @@ const leds_put = async (req, res) => {
     const led = await Led.findOne({ number: req.body.number });
     if (led != null && req.body.status != null) {
         led.status = req.body.status;
-        led.save();
+        await led.save();
     }
+
+    rpi.setLeds();
 }
 
 module.exports = {

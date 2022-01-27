@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
+const rpi = require('./rpi');
 // const MongoStore = require('connect-mongo')(session);
 require('dotenv').config();
 const mongoose = require('mongoose');
@@ -22,6 +23,9 @@ const secret = process.env.SECRET;
 
 const sessionTime = 1000 * 60 * 60 * 24 * 7;
 const cookieName = 'sid';
+
+// rpi.printTemperature();
+rpi.setLeds();
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(port, host, () => {console.log(`Server is running on ${host}:${port} | MongoDB connected`)}))
