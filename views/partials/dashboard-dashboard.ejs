@@ -1,5 +1,11 @@
 <script src="js/dashboard-dashboard.js" defer></script>
 <link rel="stylesheet" href="css/dashboard-dashboard.css">
+<div id="lcd-text-div">
+    <form action="/lcd-text" method="POST">
+        <input type="text" id="text" name="text" placeholder="Your text...">
+        <input type="submit" hidden />
+    </form>
+</div>
 <div id="leds-div">
     <div class="led-label">
         <div class="leds" data-id="<%= leds[0].number %>"></div>

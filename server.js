@@ -24,7 +24,7 @@ const secret = process.env.SECRET;
 const sessionTime = 1000 * 60 * 60 * 24 * 7;
 const cookieName = 'sid';
 
-// rpi.printTemperature();
+rpi.printInfo();
 rpi.setLeds();
 
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })

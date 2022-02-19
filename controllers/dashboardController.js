@@ -1,6 +1,7 @@
 const User = require('../models/user');
 const Led = require('../models/led');
 const rpi = require('../rpi');
+const fs = require('fs');
 
 const index_get = (req, res) => {
     res.redirect('dashboard');
@@ -97,6 +98,19 @@ const leds_put = async (req, res) => {
     }
 
     rpi.setLeds();
+    res.send();
+}
+
+const lcd_text_post = async (req, res) => {
+    var text = req.body.text;
+    if (text.length > 16) 
+    {
+        res.send("Text too long. Max limit 16 characters.");
+    }
+    fs.writeFileSync('./text.txt', text, err => {
+        if (err) throw err;
+    });
+    res.redirect('/dashboard');
 }
 
 module.exports = {
@@ -105,5 +119,6 @@ module.exports = {
     dashboard_settings_get,
     dashboard_settings_post,
     leds_get,
-    leds_put
+    leds_put,
+    lcd_text_post
 }
