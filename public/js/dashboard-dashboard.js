@@ -1,4 +1,5 @@
 const leds = document.querySelectorAll('.leds');
+const form = document.querySelector('#lcd-text-form');
 
 const get_data = async (led) => {
     const response = await fetch(`/leds/:${led.dataset.id}`, { method: 'GET' });
@@ -40,3 +41,9 @@ const main = async () => {
 }
 
 main();
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.submit();
+    form.reset();
+});

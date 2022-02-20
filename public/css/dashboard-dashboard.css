@@ -1,3 +1,21 @@
+#lcd-text {
+    border-radius: 4.5px;
+    width: 250px;
+    height: 20px;
+    margin-bottom: 100px;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    outline: none;
+    padding: 11px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+#lcd-text:focus {
+    border-color: dodgerblue;
+    box-shadow: 0 0 8px 0 dodgerblue;
+}
+
 #leds-div {
     display: flex;
     flex-direction: row;
@@ -16,6 +34,7 @@
     height: 42px;
     border-radius: 50%;
     margin-right: 10px;
+    transition: 0.3s;
 }
 
 .leds:hover + .led-info {
@@ -24,6 +43,10 @@
 
 .leds:last-child {
     margin-right: 0;
+}
+
+.leds:hover {
+    box-shadow: 0 0 14px 3.5px rgb(182, 182, 182);
 }
 
 .led-info {

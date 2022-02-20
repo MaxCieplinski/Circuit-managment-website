@@ -47,6 +47,10 @@ ul {
     margin-top: 5px;
 }
 
+.listElement {
+    transition: 0.13s;
+}
+
 .listElementDiv {
     background-color: #F3F7FA;
     display: inline-block;

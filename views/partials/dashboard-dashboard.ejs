@@ -1,9 +1,9 @@
 <script src="js/dashboard-dashboard.js" defer></script>
 <link rel="stylesheet" href="css/dashboard-dashboard.css">
 <div id="lcd-text-div">
-    <form action="/lcd-text" method="POST">
-        <input type="text" id="text" name="text" placeholder="Your text...">
-        <input type="submit" hidden />
+    <form action="/lcd-text" method="POST" id="lcd-text-form" autocomplete="off">
+        <input type="text" id="lcd-text" name="text" placeholder="Your text...">
+        <input type="button" value="Submit" hidden>
     </form>
 </div>
 <div id="leds-div">
