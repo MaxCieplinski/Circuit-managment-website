@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="css/dashboard-dashboard.css">
 <div id="lcd-text-div">
     <form action="/lcd-text" method="POST" id="lcd-text-form" autocomplete="off">
-        <input type="text" id="lcd-text" name="text" placeholder="Your text...">
+        <input type="text" class="input-text" name="text" placeholder="Your text...">
         <input type="button" value="Submit" hidden>
     </form>
 </div>
@@ -12,7 +12,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[0].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[0].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[0].status %> </span></p>
+            <p>STATUS : <% if (leds[0].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[0].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -20,7 +20,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[1].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[1].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[1].status %> </span></p>
+            <p>STATUS : <% if (leds[1].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[1].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -28,7 +28,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[2].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[2].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[2].status %> </span></p>
+            <p>STATUS : <% if (leds[2].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[2].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -36,7 +36,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[3].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[3].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[3].status %> </span></p>
+            <p>STATUS : <% if (leds[3].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[3].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -44,7 +44,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[4].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[4].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[4].status %> </span></p>
+            <p>STATUS : <% if (leds[4].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[4].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -52,7 +52,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[5].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[5].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[5].status %> </span></p>
+            <p>STATUS : <% if (leds[5].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[5].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -60,7 +60,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[6].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[6].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[6].status %> </span></p>
+            <p>STATUS : <% if (leds[6].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[6].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -68,7 +68,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[7].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[7].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[7].status %> </span></p>
+            <p>STATUS : <% if (leds[7].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[7].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -76,7 +76,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[8].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[8].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[8].status %> </span></p>
+            <p>STATUS : <% if (leds[8].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[8].status %> </span></p>
         </div>
     </div>
     <div class="led-label">
@@ -84,7 +84,7 @@
         <div class="led-info">
             <p>ID : <span id="info-number"> <%= leds[9].number %> </span></p>
             <p>OWNER : <span id="info-owner"> <%= leds[9].owner %> </span></p>
-            <p>STATUS : <span id="info-status"> <%= leds[9].status %> </span></p>
+            <p>STATUS : <% if (leds[9].status) { %> <span id="info-status-red"> <% } else { %> <span id="info-status-blue"> <% } %> <%= leds[9].status %> </span></p>
         </div>
     </div>
 </div>

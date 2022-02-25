@@ -28,11 +28,11 @@ const main = async () => {
             if (window.getComputedStyle(led).getPropertyValue('background-color') == 'rgb(255, 255, 255)') {
                 led.style.backgroundColor = 'red';
                 status = true;
-                led.nextElementSibling.children[2].innerHTML = 'STATUS :  <span id="info-status">true';
+                led.nextElementSibling.children[2].innerHTML = 'STATUS :  <span id="info-status-red">true';
             } else if (window.getComputedStyle(led).getPropertyValue('background-color') == 'rgb(255, 0, 0)') {
                 led.style.backgroundColor = 'white';
                 status = false;
-                led.nextElementSibling.children[2].innerHTML = 'STATUS :  <span id="info-status">false';
+                led.nextElementSibling.children[2].innerHTML = 'STATUS :  <span id="info-status-blue">false';
             }
 
             fetch(`/leds/:${led.dataset.id}`, {  method: 'PUT', headers: { "Content-Type": "application/json" }, body: JSON.stringify({ number: led.dataset.id, status: status })});

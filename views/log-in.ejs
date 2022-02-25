@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>Log in</title>
         <link rel="stylesheet" href="css/log-in.css">
+        <link rel="stylesheet" href="css/dashboard-dashboard.css">
         <script src="js/log-in.js" defer></script>
     </head>
     <body>
@@ -24,8 +25,8 @@
                     <h1>Log in</h1>
                 </div>
                 <form action="/log-in" method="POST">
-                    <input type="text" id="username" name="username" placeholder="Username" data-lpignore="true" required>
-                    <input type="password" id="password" name="password" placeholder="Password" data-lpignore="true" required>
+                    <input type="text" class="input-text" name="username" placeholder="Username" data-lpignore="true" required>
+                    <input type="password" class="input-text" name="password" placeholder="Password" data-lpignore="true" required>
                     <input type="checkbox" id="showPassword">
                     <input type="checkbox" id="keepLoggedIn" name="keepLoggedIn">
                     <label for="keepLoggedIn">Keep me logged in:</label>

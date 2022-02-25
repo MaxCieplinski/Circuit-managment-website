@@ -84,10 +84,10 @@ input {
     margin-bottom: 4px;
 }
 
-#showPassword {
+.showPassword {
     position: relative;
-    right: -88%;
-    top: -36.5px;
+    right: -89%;
+    top: -37.5px;
 }
 
 #submit {

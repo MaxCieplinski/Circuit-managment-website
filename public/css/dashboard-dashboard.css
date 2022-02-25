@@ -1,17 +1,17 @@
-#lcd-text {
-    border-radius: 4.5px;
-    width: 250px;
-    height: 20px;
-    margin-bottom: 100px;
-    border: 2px solid #aaa;
-    border-radius: 4px;
+.input-text {
+    display: block;
+    border-radius: 10px;
+    width: 220px;
+    height: 38px;
+    margin-bottom: 12px;
+    border: 2px solid rgba(27, 27, 27, 0.7);
     outline: none;
     padding: 11px;
     box-sizing: border-box;
     transition: 0.3s;
 }
 
-#lcd-text:focus {
+.input-text:focus {
     border-color: dodgerblue;
     box-shadow: 0 0 8px 0 dodgerblue;
 }
@@ -66,8 +66,58 @@ p {
 
 }
 
-#info-status {
-    color: red;
+@keyframes status-red {
+    0% {
+        color: rgb(4, 0, 255);
+    }
+
+    25% {
+        color: rgb(24, 86, 255);
+    }
+
+    50% {
+        color: rgb(197, 62, 21);
+    }
+
+    75% {
+        color: rgb(228, 47, 15);
+    }
+
+    100% {
+        color: rgb(255, 0, 0);
+    }
+}
+
+#info-status-red {
+    animation: status-red 0.25s ease-in;
+    animation-fill-mode: forwards;
+}
+
+@keyframes status-blue {
+    0% {
+        color: rgb(255, 0, 0);
+    }
+
+    25% {
+        color: rgb(197, 62, 21);
+    }
+
+    50% {
+        color: rgb(21, 122, 218);
+    }
+
+    75% {
+        color: rgb(24, 86, 255);
+    }
+
+    100% {
+        color: rgb(4, 0, 255);
+    }
+}
+
+#info-status-blue {
+    animation: status-blue 0.25s ease-in;
+    animation-fill-mode: forwards;
 }
 
 #info-owner {
